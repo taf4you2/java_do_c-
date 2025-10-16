@@ -1,11 +1,19 @@
-﻿namespace Program
+﻿using java_do_c_;
+using java_do_c_.controler;
+
+
+namespace Program
 {
 
     public class Program
     {
         static void Main(string[] arg)
         {
-            Console.WriteLine("hello world");
+            Controler controler = new Controler();
+
+
+
+            controler.run(arg);
         }
     }
 }
