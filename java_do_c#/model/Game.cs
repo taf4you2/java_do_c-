@@ -8,11 +8,14 @@ namespace java_do_c_.model
 {
     public class Game
     {
-        public string name { get; }
+        private string name;
+        public string GetName() => name;
         public int numberCount { get; }
         public int minRange { get; }
         public int maxRange{ get; }
-        public List<int> results { get; } = new List<int>();
+
+        private List<int> results = new List<int>();
+        public List<int> GetResults() => new List<int>(results);
 
         public Game(string _gameName, int _numbersCount, int _minRange, int _maxRange)
         {
@@ -29,19 +32,21 @@ namespace java_do_c_.model
 
             while(numberCount > _numberCount)
             {
-                int rand = random.Next(minRange,maxRange);
+                int rand = random.Next(minRange, maxRange + 1);
+
                 if (!results.Contains(rand))
                 {
                     results.Add(rand);
                     _numberCount++;
                 }
             }
-
-
-
+            results.Sort();
         }
 
-
+        public class InvalidGameParametersException : Exception
+        {
+            public InvalidGameParametersException(string message) : base(message) { }
+        }
 
     }
 }

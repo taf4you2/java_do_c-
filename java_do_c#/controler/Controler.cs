@@ -11,7 +11,7 @@ namespace java_do_c_.controler
 {
     public class Controler
     {
-        private View view = new View(); //mógłbym nie pisać private bo domyślnie wszytko jest private
+        private View view = new View();
         private Game game;
 
         public void run(string[] args)
@@ -42,8 +42,8 @@ namespace java_do_c_.controler
 
         private string getUserInput()
         {
-            //view.askForGameType();
-            string input = Console.ReadLine();// trim usuwa biale znaki
+            view.askForGameType();
+            string input = Console.ReadLine();
 
             input = input.ToLower().Trim();
 
